@@ -34,7 +34,7 @@ const NotesView = () => {
       </Table>
 
       {showModal && (
-        <Modal onClose={toggleModal}>
+        <Modal onClose={toggleModal} showModal={showModal}>
           <NoteForm onSave={toggleModal} />
         </Modal>
       )}

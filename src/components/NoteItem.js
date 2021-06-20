@@ -2,23 +2,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import notesActions from '../redux/noteActions';
 
+function findNote(notes, id) {
+  return notes.find(el => el.id === id);
+}
 export default function NoteItem({ noteId, onEdit, isArchive }) {
   const dispatch = useDispatch();
   const notes = useSelector(state => state.items);
-  const note = notes.find(el => el.id === noteId);
-  const [unarchive, setUnsrchive] = useState('archive');
+  const note = findNote(notes, noteId);
+  const [unarchive, setUnarchive] = useState('archive');
 
   useEffect(() => {
-    isArchive && setUnsrchive('unarchive');
+    isArchive && setUnarchive('unarchive');
   }, [isArchive]);
 
   const { id, name, created, category, content, dates } = note;
 
-  const editNote = e => {
-    const li = e.target.parentNode.parentNode.parentNode;
-    const id = li.id;
-    const name = li.childNodes[0].innerHTML;
-    const content = li.childNodes[3].innerHTML;
+  const editNote = () => {
+    const currentNote = findNote(notes, id);
+    const { name, content } = currentNote;
     onEdit({ id, name, content });
   };
 

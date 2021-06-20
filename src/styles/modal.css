@@ -1,0 +1,65 @@
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 60%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  margin-left: 835px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal {
+  margin: 0 auto;
+  background: white;
+  width: 500px;
+  height: fit-content;
+  padding: 25px 25px 15px;
+  text-align: center;
+}
+
+.addNote {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.addNote form {
+  width: 500px;
+}
+
+.inputModal {
+  width: 370px;
+  padding: 10px;
+  margin: 15px;
+}
+
+.radio {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.modal textarea {
+  width: 375px;
+  padding: 10px;
+}
+
+.Modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -31,7 +31,6 @@ export default function NoteForm({ onSave, noteData }) {
       const id = noteData.id;
       dispatch(notesActions.editNote({ id, name, category, content }));
     } else {
-      console.log('add');
       dispatch(notesActions.addNote({ name, category, content }));
     }
 
@@ -41,7 +40,7 @@ export default function NoteForm({ onSave, noteData }) {
   };
 
   return (
-    <div className='addNote modal'>
+    <div className='addNote'>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
@@ -79,7 +78,7 @@ export default function NoteForm({ onSave, noteData }) {
         >
           {content}
         </textarea>
-        <button className='close' type='submit'>
+        <button className='save' type='submit'>
           Save
         </button>
       </form>

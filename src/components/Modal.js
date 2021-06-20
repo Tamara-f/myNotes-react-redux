@@ -1,8 +1,11 @@
-import { createPortal } from 'react-dom';
 import React, { useEffect } from 'react';
-const modalRoot = document.querySelector('#modal-root');
+import '../styles/modal.css';
 
-const Modal = ({ onClose, children }) => {
+const Modal = ({ onClose, showModal, children }) => {
+  const showHideClassName = showModal
+    ? 'modal display-block'
+    : 'modal display-none';
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -22,11 +25,17 @@ const Modal = ({ onClose, children }) => {
     }
   };
 
-  return createPortal(
-    <div className='Modal__backdrop' onClick={handleBackdropClick}>
-      <div className='Modal__content'>{children}</div>
-    </div>,
-    modalRoot
+  return (
+    <div className={showHideClassName}>
+      <div className='Modal__backdrop' onClick={handleBackdropClick}>
+        <section className='modal-main'>
+          <button className='close' type='button' onClick={onClose}>
+            <i className='far fa-window-close'></i>
+          </button>
+          {children}
+        </section>
+      </div>
+    </div>
   );
 };
 export default Modal;

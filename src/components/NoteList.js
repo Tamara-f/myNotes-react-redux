@@ -26,7 +26,7 @@ export default function NoteList({ notes, isArchive }) {
       </ul>
 
       {showModal && (
-        <Modal onClose={toggleModal}>
+        <Modal onClose={toggleModal} showModal={showModal}>
           <NoteForm onSave={toggleModal} noteData={noteData} />
         </Modal>
       )}
